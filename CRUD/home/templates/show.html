@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud opration| {% block titel %}Show reports{% endblock titel %}</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+</head>
+    <body>
+        {{msg}}
+        <h2 class="head">Show All Data</h2>
+        <div class="second">
+            <form action="/">
+                <input type="submit" value="<< Back">
+            </form>
+        </div>
+        <div class="first">
+            <table>
+                <th>ID</th>
+                <th>Data1</th>
+                <th>Data2</th>
+                <th>Action</th>
+                {% for d in data %}
+                <tr>
+                    <td>{{d.id}}</td>
+                    <td>{{d.data1}}</td>
+                    <td>{{d.data2}}</td>
+                    <td>
+                        <a href="/edit?id={{d.id}}">Edit</a>
+                        <a href="/delete?id={{d.id}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+
+        
+    </body>
+
+</html>
